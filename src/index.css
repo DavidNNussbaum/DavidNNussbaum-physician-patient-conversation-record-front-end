@@ -1,4 +1,8 @@
 body {
+<<<<<<< HEAD
+=======
+  text-align: center;
+>>>>>>> f266728ae12adbaa9b29c6f1db2f465dedf2d88e
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -11,3 +15,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+<<<<<<< HEAD
+=======
+
+#use-line {
+  text-decoration: underline;
+}
+>>>>>>> f266728ae12adbaa9b29c6f1db2f465dedf2d88e

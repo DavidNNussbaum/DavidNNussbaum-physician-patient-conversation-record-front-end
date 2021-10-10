@@ -36,3 +36,24 @@
     transform: rotate(360deg);
   }
 }
+<<<<<<< HEAD
+=======
+
+html {
+  background: #bebebe;
+  background-attachment: fixed;
+  height: 100%;
+  min-height: 100%;
+  scroll-behavior: smooth;
+}
+
+.wrapper {
+  background-color: #fff;
+  width: 70%;
+  margin: 0 15%;
+}
+
+body {
+  padding: 1rem 1rem 2rem 1rem;
+}
+>>>>>>> f266728ae12adbaa9b29c6f1db2f465dedf2d88e
