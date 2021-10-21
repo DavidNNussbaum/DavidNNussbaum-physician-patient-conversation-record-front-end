@@ -1,18 +1,18 @@
 import {useState} from 'react'
 import { connect } from 'react-redux';
-import { deleteAComplication } from '../actions/medActions';
-import EditComplicationForm from '../forms/EditComplicationForm'
+import { deleteAConversation } from '../actions/patientActions';
+import EditConversationForm from '../forms/EditConversationForm'
 
-const Complication = (props) => {
+const Conversation = (props) => {
   const handleClick = () => {
-    props.deleteComplication(props.complication.id, props.currentUser.user.token) 
+    props.deleteConversation(props.conversation.id, props.currentUser.user.token) 
 }
   const [showForm, setShowForm] = useState(false)
   const handleEdit = () => {
        setShowForm(!showForm)
    }
     return (
-      <div key={props.complication.id}>
+      <div key={props.conversation.id}>
         <p>Description: {props.complication.complication_description}</p>
         <p>Severity (1-10): {props.complication.complication_severity}</p>
         <p>Duration: {props.complication.complication_duration}</p>
