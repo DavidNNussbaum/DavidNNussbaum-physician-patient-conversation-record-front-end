@@ -1,29 +1,29 @@
-const fetchMeds = () => {
+const fetchPatients = () => {
   return (dispatch) => {
-    dispatch({ type: 'LOADING_MEDICATIONS'})
-    fetch('http://localhost:3000/medications').then(response => {
+    dispatch({ type: 'LOADING_PATIENTS'})
+    fetch('http://localhost:3000/patients').then(response => {
       return response.json()
     }).then(responseJSON => {
-      dispatch({ type: 'ADD_MEDS', medications: responseJSON.data })
+      dispatch({ type: 'ADD_PATIENTS', patients: responseJSON.data })
     })
   }
 }
 
-export const editComplication = (complicationData, complicationId, token) => {
+export const editConversation = (conversationData, conversationId, token) => {
   return dispatch => {
-    return fetch(`http://localhost:3000/complications/${complicationId}`, {
+    return fetch(`http://localhost:3000/conversations/${conversationId}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
         "Authorization": `Bearer ${token}`
       },
-      body: JSON.stringify(complicationData)
+      body: JSON.stringify(conversationData)
     })
     .then(resp => {
       if (resp.ok) {
         resp.json()
-        .then(complication => {
-          dispatch({type: 'UPDATE_COMPLICATION', complication: complication.data.attributes})
+        .then(conversation => {
+          dispatch({type: 'UPDATE_CONVERSATION', conversationn: conversation.data.attributes})
         })
       } else {
          return resp.json()
@@ -35,21 +35,21 @@ export const editComplication = (complicationData, complicationId, token) => {
   }
 }
 
-export const createAComplication = (complicationData, token) => {
+export const createAConversation = (conversationData, token) => {
   return dispatch => {
-    return fetch('http://localhost:3000/complications', {
+    return fetch('http://localhost:3000/conversations', {
           method: "POST",
           headers: {
             "Content-Type": "application/json", 
             "Authorization": `Bearer ${token}`
           },
-          body: JSON.stringify(complicationData)
+          body: JSON.stringify(conversationData)
         })
         .then(resp => {
           if (resp.ok) {
             resp.json()
-            .then(complication => {
-                dispatch({type: 'CREATE_COMPLICATION', complication: complication.data.attributes})
+            .then(conversation => {
+                dispatch({type: 'CREATE_CONVERSATION', conversation: conversation.data.attributes})
             })
           } else {
              return resp.json()
@@ -60,34 +60,34 @@ export const createAComplication = (complicationData, token) => {
         })
       }}
          
-export const deleteAComplication = (complicationId, token) => {
+export const deleteAConversation = (conversationId, token) => {
   return dispatch => {
-    fetch(`http://localhost:3000/complications/${complicationId}`, {
+    fetch(`http://localhost:3000/conversations/${conversationId}`, {
       method: "DELETE",
       headers: {
         "Authorization": `Bearer ${token}`
       }, 
     })
-    .then(complication => {
-      dispatch({type: 'DELETE_COMPLICATION', complicationId: complicationId})
+    .then(conversation => {
+      dispatch({type: 'DELETE_CONVERSATION', conversationnId: conversationId})
     })
   }
 }
 
-export const createAMedication = (medicationData) => {
+export const createAPatient = (patientData) => {
   return dispatch => {
-  return fetch('http://localhost:3000/medications', {
+  return fetch('http://localhost:3000/patients', {
             method: "POST",
             headers: {
               "Content-Type": "application/json"
             },
-            body: JSON.stringify(medicationData)
+            body: JSON.stringify(patientData)
           })
         .then(resp => {
           if (resp.ok) {
             resp.json()
-            .then(medication => {
-              dispatch({type: 'CREATE_MEDICATION', medication: medication.data})
+            .then(patient => {
+              dispatch({type: 'CREATE_PATIENT', patient: patient.data})
             })
           }
            else {
@@ -102,4 +102,4 @@ export const createAMedication = (medicationData) => {
       }
     }
 
-export default fetchMeds;
+export default fetchPatients;
