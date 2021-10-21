@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { render } from '@testing-library/react';
 import { connect } from 'react-redux';
 import '../App.css';
-import Medications from './Medications';
+import Patients from './Patients';
 import Navbar from "./Navbar";
 import Home from './Home';
 import Login from './Login';
@@ -33,8 +33,8 @@ class App extends Component {
               <Route path="/signup">
                 <Signup setSignupUser={this.props.setSignupUser} currentUser={this.props.currentUser}/>
               </Route>
-              <Route path="/medications" >
-                <Medications currentUser={this.props.currentUser}/>
+              <Route path="/patients" >
+                <Patients currentUser={this.props.currentUser}/>
                 </Route>
 
               <Route path="/logout" component={Logout}/>
