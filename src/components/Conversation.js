@@ -13,15 +13,14 @@ const Conversation = (props) => {
    }
     return (
       <div key={props.conversation.id}>
-        <p>Description: {props.complication.complication_description}</p>
-        <p>Severity (1-10): {props.complication.complication_severity}</p>
-        <p>Duration: {props.complication.complication_duration}</p>
-        <p>{props.complication.completely_resolved ? "Completely Resolved." : "Not Completely Resolved."}</p>
-        { (props.currentUser.user && props.currentUser.user.user.data.attributes.id === props.complication.user_id) && (
+        <p>Current Date and Time: {props.conversation.date_time}</p>
+        <p>Conversation Details: {props.conversation.details}</p>
+        <p>{props.conversation.issue_resolved ? "Issue Resolved." : "Issue Not Resolved."}</p>
+        { (props.currentUser.user && props.currentUser.user.user.data.attributes.id === props.conversation.user_id) && (
           <>
-          <button onClick={handleEdit}>Edit This Complication</button>
-          {showForm && <EditComplicationForm complication={props.complication} setShowForm={setShowForm} currentUser={props.currentUser}/>}
-          <button onClick={handleClick} >Delete This Complication</button>
+          <button onClick={handleEdit}>Edit This Conversation</button>
+          {showForm && <EditConversationForm conversation={props.conversation} setShowForm={setShowForm} currentUser={props.currentUser}/>}
+          <button onClick={handleClick} >Delete This Conversation</button>
           </>
         )}
         <hr />
@@ -37,11 +36,11 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-      deleteComplication: (complicationId, token) => dispatch(deleteAComplication(complicationId, token)),
+      deleteConversation: (conversationId, token) => dispatch(deleteAConversation(conversationId, token)),
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Complication);
+export default connect(mapStateToProps, mapDispatchToProps)(Conversation);
 
-
+ 
  
