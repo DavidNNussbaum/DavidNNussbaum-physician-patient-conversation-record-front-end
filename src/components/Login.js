@@ -8,7 +8,7 @@ const Login = (props) => {
         <div>
             {!props.currentUser.user && <h1>Login</h1>}
             { showForm && <LoginForm setLoginUser={props.setLoginUser} setShowForm={setShowForm} /> }
-            { props.currentUser.user && <h2>{`${props.currentUser.user.user.data.attributes.first_name}, you have successfully logged in. Press on the Navigation Bar "Medications and Complications" tab to continue.`}</h2> } 
+            { props.currentUser.user && <h2>{`${props.currentUser.user.user.data.attributes.first_name}, you have successfully logged in. Press on the Navigation Bar "Patients and Conversations" tab to continue.`}</h2> } 
         </div>
     )
 }
