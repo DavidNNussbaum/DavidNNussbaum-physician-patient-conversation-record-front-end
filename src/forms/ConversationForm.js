@@ -32,11 +32,11 @@ class ConversationForm extends Component {
        <form onSubmit={this.handleSubmit}>
            {this.state.errors && <p>{this.state.errors}</p>}
            <label htmlFor="date_time">Date and Time: </label>
-           <input onChange={this.handleChange} name="date_time" id="date_time"    type="text"/>
+           <input onChange={this.handleChange} name="date_time" id="date_time"    type="string"/>
            <label htmlFor="details">Details: </label>
            <input onChange={this.handleChange} name="details" id="details" type="text"/>
            <input type="radio" onChange={this.handleChange} name="issue_resolved" value="true"/>
-           <label htmlFor="true">The Issue Resolved:</label>
+           <label htmlFor="true">The Issue Is Resolved:</label>
            <input type="radio" onChange={this.handleChange} name="issue_resolved" value="false"/>
            <label htmlFor="false">The Issue Is Not Resolved:</label>
            <input type="submit" value="Submit"/>
