@@ -1,12 +1,12 @@
 import React, { PureComponent} from 'react';
 import { connect } from 'react-redux';
-import fetchMeds from '../actions/medActions';
-import MedicationList from '../lists/MedicationList';
+import fetchPatients from '../actions/patientActions';
+import PatientList from '../lists/PatientList';
 import LoadingIndicator from './LoadingIndicator';
 import ErrorPage from './ErrorPage';
-import CreateMedication from './CreateMedication'
+import CreatePatient from './CreatePatient'
  
-class Medications extends PureComponent {
+class Patients extends PureComponent {
     componentDidMount() {
         this.props.fetchMeds()
       }
@@ -16,7 +16,7 @@ class Medications extends PureComponent {
           return < LoadingIndicator />
         } else {
           return (
-            <MedicationList medications={this.props.medications.medications}   complications={this.props.complications.complications} currentUser={this.props.currentUser}/>
+            <PatientList patients={this.props.patients.patients}   conversations={this.props.conversations.conversations} currentUser={this.props.currentUser}/>
           )
         }}
     render() {
@@ -28,10 +28,10 @@ class Medications extends PureComponent {
       }
         return (
             <>
-            <h1>Medications</h1>
+            <h1>Patients</h1>
             <div>
             { this.props.currentUser.user && (
-          <CreateMedication />
+          <CreatePatient />
             )}
                 {this.handleLoading()}
             </div>
@@ -41,16 +41,16 @@ class Medications extends PureComponent {
 }
 const mapStateToProps = state => {
     return {
-      medications: state.medications,
-      complications: state.complications,
-      loading: state.medications.loading
+      patients: state.patients,
+      conversations: state.conversations,
+      loading: state.patients.loading
     }
   }
 
   const mapDispatchToProps = dispatch => {
       return {
-        fetchMeds: () => dispatch(fetchMeds()),
+        fetchPatients: () => dispatch(fetchPatients()),
       }
   }
 
-  export default connect(mapStateToProps, mapDispatchToProps)(Medications)
+  export default connect(mapStateToProps, mapDispatchToProps)(Patients)
