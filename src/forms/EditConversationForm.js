@@ -1,6 +1,6 @@
 import React, { Component} from "react"
 import { connect } from 'react-redux';
-import { editComplication } from '../actions/medActions';
+import { editConversation } from '../actions/patientActions';
 
 class EditComplicationForm extends Component {
     constructor(props) {

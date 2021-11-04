@@ -52,9 +52,9 @@ const mapStateToProps = state => {
 
   const mapDispatchToProps = (dispatch) => {
       return {
-        createAComplication: (complication, token) => dispatch(createAComplication(complication, token)),
+        createAConversation: (conversation, token) => dispatch(createAConversation(conversation, token)),
       }
   }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ComplicationForm);
+export default connect(mapStateToProps, mapDispatchToProps)(ConversationForm);
 
