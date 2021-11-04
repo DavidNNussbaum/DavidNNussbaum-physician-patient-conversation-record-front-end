@@ -6,7 +6,7 @@ function Signup(props) {
     <div>
        {!props.currentUser.user && <h1>Create An Account</h1>}
     { showForm && <SignupForm setSignupUser={props.setSignupUser} setShowForm={setShowForm}/> }
-    { props.currentUser.user && <h2>{`${props.currentUser.user.user.data.attributes.first_name}, you have successfully signed up. Press on the Navigation Bar Medications and Complications tab to continue.`}</h2> } 
+    { props.currentUser.user && <h2>{`${props.currentUser.user.user.data.attributes.first_name}, you have successfully signed up. Press on the Navigation Bar Patients and Conversations tab to continue.`}</h2> } 
     </div>
     )
 }
