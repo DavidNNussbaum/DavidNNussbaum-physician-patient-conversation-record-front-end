@@ -5,7 +5,6 @@ class SignupForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            first_name: "",
             email: "",
             password: "",
             password_confirmation: "",
@@ -30,12 +29,7 @@ class SignupForm extends Component {
     return(
    <form onSubmit={this.handleSubmit}>
     {this.state.errors && <p>{this.state.errors}</p>}
-      <label htmlFor="first_name"> 
-          First Name: 
-      </label>
-<br/>
-
- <input onChange={this.handleChange} name="first_name" type="text" id="first-name"/><br/>
+    
  <label htmlFor="email"> 
           Email: 
       </label>
