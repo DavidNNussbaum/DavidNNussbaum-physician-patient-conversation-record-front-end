@@ -1,11 +1,11 @@
-import complicationsReducer from './manageComplication'
-import medicationsReducer from './manageMedications'
+import conversationsReducer from './manageConversation'
+import patientsReducer from './managePatients'
 import userReducer from './manageUser'
 import {combineReducers} from 'redux'
 
 const rootReducer = combineReducers({
-    complications: complicationsReducer,
-    medications: medicationsReducer,
+    conversations: conversationsReducer,
+    patients: patientsReducer,
     user: userReducer,
      
 })
